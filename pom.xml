@@ -10,7 +10,7 @@
 
     <name>yjnb</name>
     <url>http://www.ruoyi.vip</url>
-    <description>阳江农宝管理系统</description>
+    <description>阳江农保管理系统</description>
     
     <properties>
         <yjnb.version>3.8.9</yjnb.version>
