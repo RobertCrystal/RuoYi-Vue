@@ -61,6 +61,12 @@
             <artifactId>yjnb-generator</artifactId>
         </dependency>
 
+        <!--农业管理-->
+        <dependency>
+            <groupId>com.yjnb</groupId>
+            <artifactId>yjnb-farm</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

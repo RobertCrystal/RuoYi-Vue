@@ -218,6 +218,13 @@
                 <version>${yjnb.version}</version>
             </dependency>
 
+            <!--农业管理-->
+            <dependency>
+                <groupId>com.yjnb</groupId>
+                <artifactId>yjnb-farm</artifactId>
+                <version>${yjnb.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -228,6 +235,8 @@
         <module>yjnb-quartz</module>
         <module>yjnb-generator</module>
         <module>yjnb-common</module>
+        <module>yjnb-farm</module>
+        <module>yjnb-farm</module>
     </modules>
     <packaging>pom</packaging>
 
