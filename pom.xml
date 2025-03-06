@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
     <groupId>com.yjnb</groupId>
-    <artifactId>yjnb</artifactId>
+    <artifactId>yjnb-farm-management-system-backend</artifactId>
     <version>3.8.9</version>
 
     <name>yjnb</name>
