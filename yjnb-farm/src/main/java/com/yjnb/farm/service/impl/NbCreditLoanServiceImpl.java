@@ -1,6 +1,9 @@
 package com.yjnb.farm.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.yjnb.common.utils.UniqueIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yjnb.farm.mapper.NbCreditLoanMapper;
@@ -52,6 +55,8 @@ public class NbCreditLoanServiceImpl implements INbCreditLoanService
     @Override
     public int insertNbCreditLoan(NbCreditLoan nbCreditLoan)
     {
+        nbCreditLoan.setId(UniqueIdGenerator.generateUniqueId());
+        nbCreditLoan.setCreatedTime(new Date());
         return nbCreditLoanMapper.insertNbCreditLoan(nbCreditLoan);
     }
 
@@ -64,6 +69,7 @@ public class NbCreditLoanServiceImpl implements INbCreditLoanService
     @Override
     public int updateNbCreditLoan(NbCreditLoan nbCreditLoan)
     {
+        nbCreditLoan.setUpdatedTime(new Date());
         return nbCreditLoanMapper.updateNbCreditLoan(nbCreditLoan);
     }
 

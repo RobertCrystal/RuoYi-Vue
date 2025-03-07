@@ -26,17 +26,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectNbCreditLoanList" parameterType="NbCreditLoan" resultMap="NbCreditLoanResult">
         <include refid="selectNbCreditLoanVo"/>
         <where>  
-            <if test="title != null  and title != ''"> and title = #{title}</if>
-            <if test="author != null  and author != ''"> and author = #{author}</if>
-            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
-            <if test="content != null  and content != ''"> and content = #{content}</if>
-            <if test="image != null  and image != ''"> and image = #{image}</if>
-            <if test="publishTime != null "> and publishTime = #{publishTime}</if>
-            <if test="publishStatus != null "> and publishStatus = #{publishStatus}</if>
-            <if test="recommend != null "> and recommend = #{recommend}</if>
-            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
-            <if test="createdTime != null "> and createdTime = #{createdTime}</if>
-            <if test="updatedTime != null "> and updatedTime = #{updatedTime}</if>
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="author != null  and author != ''"> and author like concat('%', #{author}, '%')</if>
         </where>
     </select>
     
