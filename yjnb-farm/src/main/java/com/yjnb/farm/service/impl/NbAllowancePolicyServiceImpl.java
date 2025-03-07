@@ -1,6 +1,9 @@
 package com.yjnb.farm.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.yjnb.common.utils.UniqueIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yjnb.farm.mapper.NbAllowancePolicyMapper;
@@ -52,6 +55,8 @@ public class NbAllowancePolicyServiceImpl implements INbAllowancePolicyService
     @Override
     public int insertNbAllowancePolicy(NbAllowancePolicy nbAllowancePolicy)
     {
+        nbAllowancePolicy.setId(UniqueIdGenerator.generateUniqueId());
+        nbAllowancePolicy.setCreatedTime(new Date());
         return nbAllowancePolicyMapper.insertNbAllowancePolicy(nbAllowancePolicy);
     }
 
@@ -64,6 +69,7 @@ public class NbAllowancePolicyServiceImpl implements INbAllowancePolicyService
     @Override
     public int updateNbAllowancePolicy(NbAllowancePolicy nbAllowancePolicy)
     {
+        nbAllowancePolicy.setUpdatedTime(new Date());
         return nbAllowancePolicyMapper.updateNbAllowancePolicy(nbAllowancePolicy);
     }
 
