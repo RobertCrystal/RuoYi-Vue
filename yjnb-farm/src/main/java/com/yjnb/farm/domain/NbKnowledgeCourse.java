@@ -18,6 +18,7 @@ public class NbKnowledgeCourse extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 主键id */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /** 课程标题 */
@@ -28,8 +29,8 @@ public class NbKnowledgeCourse extends BaseEntity
     @Excel(name = "文章摘要")
     private String resume;
 
-    /** 专家Id */
-    @Excel(name = "专家Id")
+    /** 专家 */
+    @Excel(name = "专家")
     private Long expertId;
 
     /** 所属领域 */
@@ -56,17 +57,17 @@ public class NbKnowledgeCourse extends BaseEntity
     @Excel(name = "视频文件")
     private String video;
 
-    /** 课程类型 1.图文课程 2.视频课程 3.短视频课程 */
-    @Excel(name = "课程类型 1.图文课程 2.视频课程 3.短视频课程")
-    private Long type;
+    /** 课程类型 */
+    @Excel(name = "课程类型")
+    private String type;
 
-    /** 是否推荐 ：1.推荐；2.不推荐 */
-    @Excel(name = "是否推荐 ：1.推荐；2.不推荐")
-    private Long recommend;
+    /** 是否推荐 */
+    @Excel(name = "是否推荐")
+    private String recommend;
 
-    /** 发布状态 ：1.已发布；2.未发布 */
-    @Excel(name = "发布状态 ：1.已发布；2.未发布")
-    private Long publishStatus;
+    /** 发布状态  */
+    @Excel(name = "发布状态 ")
+    private String publishStatus;
 
     /** 发布时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -177,32 +178,32 @@ public class NbKnowledgeCourse extends BaseEntity
         return video;
     }
 
-    public void setType(Long type) 
+    public void setType(String type) 
     {
         this.type = type;
     }
 
-    public Long getType() 
+    public String getType() 
     {
         return type;
     }
 
-    public void setRecommend(Long recommend) 
+    public void setRecommend(String recommend) 
     {
         this.recommend = recommend;
     }
 
-    public Long getRecommend() 
+    public String getRecommend() 
     {
         return recommend;
     }
 
-    public void setPublishStatus(Long publishStatus) 
+    public void setPublishStatus(String publishStatus) 
     {
         this.publishStatus = publishStatus;
     }
 
-    public Long getPublishStatus() 
+    public String getPublishStatus() 
     {
         return publishStatus;
     }

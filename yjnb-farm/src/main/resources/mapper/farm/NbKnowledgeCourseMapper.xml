@@ -31,22 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectNbKnowledgeCourseList" parameterType="NbKnowledgeCourse" resultMap="NbKnowledgeCourseResult">
         <include refid="selectNbKnowledgeCourseVo"/>
         <where>  
-            <if test="title != null  and title != ''"> and title = #{title}</if>
-            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
-            <if test="expertId != null "> and expertId = #{expertId}</if>
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="expertId != null "> and expertId like concat('%', #{expertId}, '%')</if>
             <if test="fieldCode != null  and fieldCode != ''"> and fieldCode = #{fieldCode}</if>
-            <if test="image != null  and image != ''"> and image = #{image}</if>
-            <if test="content != null  and content != ''"> and content = #{content}</if>
             <if test="serviceCatgoryCode != null  and serviceCatgoryCode != ''"> and serviceCatgoryCode = #{serviceCatgoryCode}</if>
-            <if test="produceCategoryId != null "> and produceCategoryId = #{produceCategoryId}</if>
-            <if test="video != null  and video != ''"> and video = #{video}</if>
-            <if test="type != null "> and type = #{type}</if>
-            <if test="recommend != null "> and recommend = #{recommend}</if>
-            <if test="publishStatus != null "> and publishStatus = #{publishStatus}</if>
-            <if test="publishTime != null "> and publishTime = #{publishTime}</if>
-            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
-            <if test="createTime != null "> and createTime = #{createTime}</if>
-            <if test="updateTime != null "> and updateTime = #{updateTime}</if>
         </where>
     </select>
     
