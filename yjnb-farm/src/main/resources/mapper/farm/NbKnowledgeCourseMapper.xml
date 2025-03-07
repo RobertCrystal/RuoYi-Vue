@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbKnowledgeCourseMapper">
+    
+    <resultMap type="NbKnowledgeCourse" id="NbKnowledgeCourseResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="resume"    column="resume"    />
+        <result property="expertId"    column="expertId"    />
+        <result property="fieldCode"    column="fieldCode"    />
+        <result property="image"    column="image"    />
+        <result property="content"    column="content"    />
+        <result property="serviceCatgoryCode"    column="serviceCatgoryCode"    />
+        <result property="produceCategoryId"    column="produceCategoryId"    />
+        <result property="video"    column="video"    />
+        <result property="type"    column="type"    />
+        <result property="recommend"    column="recommend"    />
+        <result property="publishStatus"    column="publishStatus"    />
+        <result property="publishTime"    column="publishTime"    />
+        <result property="browseNum"    column="browseNum"    />
+        <result property="createTime"    column="createTime"    />
+        <result property="updateTime"    column="updateTime"    />
+    </resultMap>
+
+    <sql id="selectNbKnowledgeCourseVo">
+        select id, title, resume, expertId, fieldCode, image, content, serviceCatgoryCode, produceCategoryId, video, type, recommend, publishStatus, publishTime, browseNum, createTime, updateTime from nb_knowledge_course
+    </sql>
+
+    <select id="selectNbKnowledgeCourseList" parameterType="NbKnowledgeCourse" resultMap="NbKnowledgeCourseResult">
+        <include refid="selectNbKnowledgeCourseVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
+            <if test="expertId != null "> and expertId = #{expertId}</if>
+            <if test="fieldCode != null  and fieldCode != ''"> and fieldCode = #{fieldCode}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="serviceCatgoryCode != null  and serviceCatgoryCode != ''"> and serviceCatgoryCode = #{serviceCatgoryCode}</if>
+            <if test="produceCategoryId != null "> and produceCategoryId = #{produceCategoryId}</if>
+            <if test="video != null  and video != ''"> and video = #{video}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="recommend != null "> and recommend = #{recommend}</if>
+            <if test="publishStatus != null "> and publishStatus = #{publishStatus}</if>
+            <if test="publishTime != null "> and publishTime = #{publishTime}</if>
+            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
+            <if test="createTime != null "> and createTime = #{createTime}</if>
+            <if test="updateTime != null "> and updateTime = #{updateTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbKnowledgeCourseById" parameterType="Long" resultMap="NbKnowledgeCourseResult">
+        <include refid="selectNbKnowledgeCourseVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbKnowledgeCourse" parameterType="NbKnowledgeCourse">
+        insert into nb_knowledge_course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="resume != null">resume,</if>
+            <if test="expertId != null">expertId,</if>
+            <if test="fieldCode != null">fieldCode,</if>
+            <if test="image != null">image,</if>
+            <if test="content != null">content,</if>
+            <if test="serviceCatgoryCode != null">serviceCatgoryCode,</if>
+            <if test="produceCategoryId != null">produceCategoryId,</if>
+            <if test="video != null">video,</if>
+            <if test="type != null">type,</if>
+            <if test="recommend != null">recommend,</if>
+            <if test="publishStatus != null">publishStatus,</if>
+            <if test="publishTime != null">publishTime,</if>
+            <if test="browseNum != null">browseNum,</if>
+            <if test="createTime != null">createTime,</if>
+            <if test="updateTime != null">updateTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="resume != null">#{resume},</if>
+            <if test="expertId != null">#{expertId},</if>
+            <if test="fieldCode != null">#{fieldCode},</if>
+            <if test="image != null">#{image},</if>
+            <if test="content != null">#{content},</if>
+            <if test="serviceCatgoryCode != null">#{serviceCatgoryCode},</if>
+            <if test="produceCategoryId != null">#{produceCategoryId},</if>
+            <if test="video != null">#{video},</if>
+            <if test="type != null">#{type},</if>
+            <if test="recommend != null">#{recommend},</if>
+            <if test="publishStatus != null">#{publishStatus},</if>
+            <if test="publishTime != null">#{publishTime},</if>
+            <if test="browseNum != null">#{browseNum},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbKnowledgeCourse" parameterType="NbKnowledgeCourse">
+        update nb_knowledge_course
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="expertId != null">expertId = #{expertId},</if>
+            <if test="fieldCode != null">fieldCode = #{fieldCode},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="serviceCatgoryCode != null">serviceCatgoryCode = #{serviceCatgoryCode},</if>
+            <if test="produceCategoryId != null">produceCategoryId = #{produceCategoryId},</if>
+            <if test="video != null">video = #{video},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="publishStatus != null">publishStatus = #{publishStatus},</if>
+            <if test="publishTime != null">publishTime = #{publishTime},</if>
+            <if test="browseNum != null">browseNum = #{browseNum},</if>
+            <if test="createTime != null">createTime = #{createTime},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbKnowledgeCourseById" parameterType="Long">
+        delete from nb_knowledge_course where id = #{id}
+    </delete>
+
+    <delete id="deleteNbKnowledgeCourseByIds" parameterType="String">
+        delete from nb_knowledge_course where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbCreditLoanMapper">
+    
+    <resultMap type="NbCreditLoan" id="NbCreditLoanResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="author"    column="author"    />
+        <result property="resume"    column="resume"    />
+        <result property="content"    column="content"    />
+        <result property="image"    column="image"    />
+        <result property="publishTime"    column="publishTime"    />
+        <result property="publishStatus"    column="publishStatus"    />
+        <result property="recommend"    column="recommend"    />
+        <result property="browseNum"    column="browseNum"    />
+        <result property="createdTime"    column="createdTime"    />
+        <result property="updatedTime"    column="updatedTime"    />
+    </resultMap>
+
+    <sql id="selectNbCreditLoanVo">
+        select id, title, author, resume, content, image, publishTime, publishStatus, recommend, browseNum, createdTime, updatedTime from nb_credit_loan
+    </sql>
+
+    <select id="selectNbCreditLoanList" parameterType="NbCreditLoan" resultMap="NbCreditLoanResult">
+        <include refid="selectNbCreditLoanVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="author != null  and author != ''"> and author = #{author}</if>
+            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
+            <if test="content != null  and content != ''"> and content = #{content}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="publishTime != null "> and publishTime = #{publishTime}</if>
+            <if test="publishStatus != null "> and publishStatus = #{publishStatus}</if>
+            <if test="recommend != null "> and recommend = #{recommend}</if>
+            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
+            <if test="createdTime != null "> and createdTime = #{createdTime}</if>
+            <if test="updatedTime != null "> and updatedTime = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbCreditLoanById" parameterType="Long" resultMap="NbCreditLoanResult">
+        <include refid="selectNbCreditLoanVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbCreditLoan" parameterType="NbCreditLoan">
+        insert into nb_credit_loan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="author != null and author != ''">author,</if>
+            <if test="resume != null">resume,</if>
+            <if test="content != null">content,</if>
+            <if test="image != null">image,</if>
+            <if test="publishTime != null">publishTime,</if>
+            <if test="publishStatus != null">publishStatus,</if>
+            <if test="recommend != null">recommend,</if>
+            <if test="browseNum != null">browseNum,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="author != null and author != ''">#{author},</if>
+            <if test="resume != null">#{resume},</if>
+            <if test="content != null">#{content},</if>
+            <if test="image != null">#{image},</if>
+            <if test="publishTime != null">#{publishTime},</if>
+            <if test="publishStatus != null">#{publishStatus},</if>
+            <if test="recommend != null">#{recommend},</if>
+            <if test="browseNum != null">#{browseNum},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbCreditLoan" parameterType="NbCreditLoan">
+        update nb_credit_loan
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="author != null and author != ''">author = #{author},</if>
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="publishTime != null">publishTime = #{publishTime},</if>
+            <if test="publishStatus != null">publishStatus = #{publishStatus},</if>
+            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="browseNum != null">browseNum = #{browseNum},</if>
+            <if test="createdTime != null">createdTime = #{createdTime},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbCreditLoanById" parameterType="Long">
+        delete from nb_credit_loan where id = #{id}
+    </delete>
+
+    <delete id="deleteNbCreditLoanByIds" parameterType="String">
+        delete from nb_credit_loan where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

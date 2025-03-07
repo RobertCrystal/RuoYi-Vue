@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbFarmProduceMapper">
+    
+    <resultMap type="NbFarmProduce" id="NbFarmProduceResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="image"    column="image"    />
+        <result property="resume"    column="resume"    />
+        <result property="catgory"    column="catgory"    />
+        <result property="produceType"    column="produceType"    />
+        <result property="providerName"    column="providerName"    />
+        <result property="price"    column="price"    />
+        <result property="pushTime"    column="pushTime"    />
+        <result property="pushStatus"    column="pushStatus"    />
+        <result property="recommend"    column="recommend"    />
+        <result property="description"    column="description"    />
+        <result property="accountId"    column="accountId"    />
+        <result property="browseNum"    column="browseNum"    />
+        <result property="createdTime"    column="createdTime"    />
+        <result property="updatedTime"    column="updatedTime"    />
+    </resultMap>
+
+    <sql id="selectNbFarmProduceVo">
+        select id, title, image, resume, catgory, produceType, providerName, price, pushTime, pushStatus, recommend, description, accountId, browseNum, createdTime, updatedTime from nb_farm_produce
+    </sql>
+
+    <select id="selectNbFarmProduceList" parameterType="NbFarmProduce" resultMap="NbFarmProduceResult">
+        <include refid="selectNbFarmProduceVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="resume != null  and resume != ''"> and resume like concat('%', #{resume}, '%')</if>
+            <if test="pushStatus != null  and pushStatus != ''"> and pushStatus = #{pushStatus}</if>
+            <if test="recommend != null  and recommend != ''"> and recommend = #{recommend}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbFarmProduceById" parameterType="Long" resultMap="NbFarmProduceResult">
+        <include refid="selectNbFarmProduceVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbFarmProduce" parameterType="NbFarmProduce">
+        insert into nb_farm_produce
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null and title != ''">title,</if>
+            <if test="image != null">image,</if>
+            <if test="resume != null">resume,</if>
+            <if test="catgory != null">catgory,</if>
+            <if test="produceType != null">produceType,</if>
+            <if test="providerName != null">providerName,</if>
+            <if test="price != null">price,</if>
+            <if test="pushTime != null">pushTime,</if>
+            <if test="pushStatus != null">pushStatus,</if>
+            <if test="recommend != null">recommend,</if>
+            <if test="description != null">description,</if>
+            <if test="accountId != null">accountId,</if>
+            <if test="browseNum != null">browseNum,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null and title != ''">#{title},</if>
+            <if test="image != null">#{image},</if>
+            <if test="resume != null">#{resume},</if>
+            <if test="catgory != null">#{catgory},</if>
+            <if test="produceType != null">#{produceType},</if>
+            <if test="providerName != null">#{providerName},</if>
+            <if test="price != null">#{price},</if>
+            <if test="pushTime != null">#{pushTime},</if>
+            <if test="pushStatus != null">#{pushStatus},</if>
+            <if test="recommend != null">#{recommend},</if>
+            <if test="description != null">#{description},</if>
+            <if test="accountId != null">#{accountId},</if>
+            <if test="browseNum != null">#{browseNum},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbFarmProduce" parameterType="NbFarmProduce">
+        update nb_farm_produce
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null and title != ''">title = #{title},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="catgory != null">catgory = #{catgory},</if>
+            <if test="produceType != null">produceType = #{produceType},</if>
+            <if test="providerName != null">providerName = #{providerName},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="pushTime != null">pushTime = #{pushTime},</if>
+            <if test="pushStatus != null">pushStatus = #{pushStatus},</if>
+            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="accountId != null">accountId = #{accountId},</if>
+            <if test="browseNum != null">browseNum = #{browseNum},</if>
+            <if test="createdTime != null">createdTime = #{createdTime},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbFarmProduceById" parameterType="Long">
+        delete from nb_farm_produce where id = #{id}
+    </delete>
+
+    <delete id="deleteNbFarmProduceByIds" parameterType="String">
+        delete from nb_farm_produce where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

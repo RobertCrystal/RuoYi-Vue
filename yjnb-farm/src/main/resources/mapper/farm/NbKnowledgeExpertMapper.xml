@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbKnowledgeExpertMapper">
+    
+    <resultMap type="NbKnowledgeExpert" id="NbKnowledgeExpertResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="fieldCode"    column="fieldCode"    />
+        <result property="description"    column="description"    />
+        <result property="image"    column="image"    />
+        <result property="organization"    column="organization"    />
+        <result property="levelCode"    column="levelCode"    />
+        <result property="publishTime"    column="publishTime"    />
+        <result property="publishStatus"    column="publishStatus"    />
+        <result property="recommend"    column="recommend"    />
+        <result property="browseNum"    column="browseNum"    />
+        <result property="createdTime"    column="createdTime"    />
+        <result property="updatedTime"    column="updatedTime"    />
+    </resultMap>
+
+    <sql id="selectNbKnowledgeExpertVo">
+        select id, name, fieldCode, description, image, organization, levelCode, publishTime, publishStatus, recommend, browseNum, createdTime, updatedTime from nb_knowledge_expert
+    </sql>
+
+    <select id="selectNbKnowledgeExpertList" parameterType="NbKnowledgeExpert" resultMap="NbKnowledgeExpertResult">
+        <include refid="selectNbKnowledgeExpertVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="fieldCode != null  and fieldCode != ''"> and fieldCode = #{fieldCode}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="organization != null  and organization != ''"> and organization = #{organization}</if>
+            <if test="levelCode != null  and levelCode != ''"> and levelCode = #{levelCode}</if>
+            <if test="publishTime != null "> and publishTime = #{publishTime}</if>
+            <if test="publishStatus != null "> and publishStatus = #{publishStatus}</if>
+            <if test="recommend != null "> and recommend = #{recommend}</if>
+            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
+            <if test="createdTime != null "> and createdTime = #{createdTime}</if>
+            <if test="updatedTime != null "> and updatedTime = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbKnowledgeExpertById" parameterType="Long" resultMap="NbKnowledgeExpertResult">
+        <include refid="selectNbKnowledgeExpertVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbKnowledgeExpert" parameterType="NbKnowledgeExpert">
+        insert into nb_knowledge_expert
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="fieldCode != null">fieldCode,</if>
+            <if test="description != null">description,</if>
+            <if test="image != null">image,</if>
+            <if test="organization != null">organization,</if>
+            <if test="levelCode != null">levelCode,</if>
+            <if test="publishTime != null">publishTime,</if>
+            <if test="publishStatus != null">publishStatus,</if>
+            <if test="recommend != null">recommend,</if>
+            <if test="browseNum != null">browseNum,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="fieldCode != null">#{fieldCode},</if>
+            <if test="description != null">#{description},</if>
+            <if test="image != null">#{image},</if>
+            <if test="organization != null">#{organization},</if>
+            <if test="levelCode != null">#{levelCode},</if>
+            <if test="publishTime != null">#{publishTime},</if>
+            <if test="publishStatus != null">#{publishStatus},</if>
+            <if test="recommend != null">#{recommend},</if>
+            <if test="browseNum != null">#{browseNum},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbKnowledgeExpert" parameterType="NbKnowledgeExpert">
+        update nb_knowledge_expert
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="fieldCode != null">fieldCode = #{fieldCode},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="organization != null">organization = #{organization},</if>
+            <if test="levelCode != null">levelCode = #{levelCode},</if>
+            <if test="publishTime != null">publishTime = #{publishTime},</if>
+            <if test="publishStatus != null">publishStatus = #{publishStatus},</if>
+            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="browseNum != null">browseNum = #{browseNum},</if>
+            <if test="createdTime != null">createdTime = #{createdTime},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbKnowledgeExpertById" parameterType="Long">
+        delete from nb_knowledge_expert where id = #{id}
+    </delete>
+
+    <delete id="deleteNbKnowledgeExpertByIds" parameterType="String">
+        delete from nb_knowledge_expert where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

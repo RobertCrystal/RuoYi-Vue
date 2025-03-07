@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbFarmWorkMapper">
+    
+    <resultMap type="NbFarmWork" id="NbFarmWorkResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="image"    column="image"    />
+        <result property="price"    column="price"    />
+        <result property="catgory"    column="catgory"    />
+        <result property="resume"    column="resume"    />
+        <result property="phone"    column="phone"    />
+        <result property="weChat"    column="weChat"    />
+        <result property="providerName"    column="providerName"    />
+        <result property="description"    column="description"    />
+        <result property="pubdate"    column="pubdate"    />
+        <result property="pubAccountId"    column="pubAccountId"    />
+        <result property="pushStatus"    column="pushStatus"    />
+        <result property="recommend"    column="recommend"    />
+        <result property="browseNum"    column="browseNum"    />
+        <result property="createdTime"    column="createdTime"    />
+        <result property="updatedTime"    column="updatedTime"    />
+    </resultMap>
+
+    <sql id="selectNbFarmWorkVo">
+        select id, title, image, price, catgory, resume, phone, weChat, providerName, description, pubdate, pubAccountId, pushStatus, recommend, browseNum, createdTime, updatedTime from nb_farm_work
+    </sql>
+
+    <select id="selectNbFarmWorkList" parameterType="NbFarmWork" resultMap="NbFarmWorkResult">
+        <include refid="selectNbFarmWorkVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="catgory != null  and catgory != ''"> and catgory = #{catgory}</if>
+            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="weChat != null  and weChat != ''"> and weChat = #{weChat}</if>
+            <if test="providerName != null  and providerName != ''"> and providerName like concat('%', #{providerName}, '%')</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="pubdate != null "> and pubdate = #{pubdate}</if>
+            <if test="pubAccountId != null  and pubAccountId != ''"> and pubAccountId = #{pubAccountId}</if>
+            <if test="pushStatus != null "> and pushStatus = #{pushStatus}</if>
+            <if test="recommend != null "> and recommend = #{recommend}</if>
+            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
+            <if test="createdTime != null "> and createdTime = #{createdTime}</if>
+            <if test="updatedTime != null "> and updatedTime = #{updatedTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbFarmWorkById" parameterType="Long" resultMap="NbFarmWorkResult">
+        <include refid="selectNbFarmWorkVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbFarmWork" parameterType="NbFarmWork">
+        insert into nb_farm_work
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="image != null">image,</if>
+            <if test="price != null">price,</if>
+            <if test="catgory != null">catgory,</if>
+            <if test="resume != null">resume,</if>
+            <if test="phone != null">phone,</if>
+            <if test="weChat != null">weChat,</if>
+            <if test="providerName != null">providerName,</if>
+            <if test="description != null">description,</if>
+            <if test="pubdate != null">pubdate,</if>
+            <if test="pubAccountId != null">pubAccountId,</if>
+            <if test="pushStatus != null">pushStatus,</if>
+            <if test="recommend != null">recommend,</if>
+            <if test="browseNum != null">browseNum,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="image != null">#{image},</if>
+            <if test="price != null">#{price},</if>
+            <if test="catgory != null">#{catgory},</if>
+            <if test="resume != null">#{resume},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="weChat != null">#{weChat},</if>
+            <if test="providerName != null">#{providerName},</if>
+            <if test="description != null">#{description},</if>
+            <if test="pubdate != null">#{pubdate},</if>
+            <if test="pubAccountId != null">#{pubAccountId},</if>
+            <if test="pushStatus != null">#{pushStatus},</if>
+            <if test="recommend != null">#{recommend},</if>
+            <if test="browseNum != null">#{browseNum},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbFarmWork" parameterType="NbFarmWork">
+        update nb_farm_work
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null">title = #{title},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="catgory != null">catgory = #{catgory},</if>
+            <if test="resume != null">resume = #{resume},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="weChat != null">weChat = #{weChat},</if>
+            <if test="providerName != null">providerName = #{providerName},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="pubdate != null">pubdate = #{pubdate},</if>
+            <if test="pubAccountId != null">pubAccountId = #{pubAccountId},</if>
+            <if test="pushStatus != null">pushStatus = #{pushStatus},</if>
+            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="browseNum != null">browseNum = #{browseNum},</if>
+            <if test="createdTime != null">createdTime = #{createdTime},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbFarmWorkById" parameterType="Long">
+        delete from nb_farm_work where id = #{id}
+    </delete>
+
+    <delete id="deleteNbFarmWorkByIds" parameterType="String">
+        delete from nb_farm_work where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

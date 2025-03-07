@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjnb.farm.mapper.NbFarmMarketMapper">
+    
+    <resultMap type="NbFarmMarket" id="NbFarmMarketResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="regionId"    column="regionId"    />
+        <result property="createdTime"    column="createdTime"    />
+        <result property="updatedTime"    column="updatedTime"    />
+    </resultMap>
+
+    <sql id="selectNbFarmMarketVo">
+        select id, name, regionId, createdTime, updatedTime from nb_farm_market
+    </sql>
+
+    <select id="selectNbFarmMarketList" parameterType="NbFarmMarket" resultMap="NbFarmMarketResult">
+        <include refid="selectNbFarmMarketVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="regionId != null  and regionId != ''"> and regionId = #{regionId}</if>
+        </where>
+    </select>
+    
+    <select id="selectNbFarmMarketById" parameterType="Long" resultMap="NbFarmMarketResult">
+        <include refid="selectNbFarmMarketVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertNbFarmMarket" parameterType="NbFarmMarket">
+        insert into nb_farm_market
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null and name != ''">name,</if>
+            <if test="regionId != null">regionId,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="regionId != null">#{regionId},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateNbFarmMarket" parameterType="NbFarmMarket">
+        update nb_farm_market
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="regionId != null">regionId = #{regionId},</if>
+            <if test="createdTime != null">createdTime = #{createdTime},</if>
+            <if test="updatedTime != null">updatedTime = #{updatedTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteNbFarmMarketById" parameterType="Long">
+        delete from nb_farm_market where id = #{id}
+    </delete>
+
+    <delete id="deleteNbFarmMarketByIds" parameterType="String">
+        delete from nb_farm_market where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
