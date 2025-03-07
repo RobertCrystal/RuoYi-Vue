@@ -18,6 +18,7 @@ public class NbKnowledgeExpert extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 主键 */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /** 专家名称 */
@@ -32,8 +33,8 @@ public class NbKnowledgeExpert extends BaseEntity
     @Excel(name = "专家简介")
     private String description;
 
-    /** 头像图片id */
-    @Excel(name = "头像图片id")
+    /** 头像 */
+    @Excel(name = "头像")
     private String image;
 
     /** 所属机构 */
@@ -49,26 +50,22 @@ public class NbKnowledgeExpert extends BaseEntity
     @Excel(name = "发布时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date publishTime;
 
-    /** 发布状态：1.已发布；2.未发布 */
-    @Excel(name = "发布状态：1.已发布；2.未发布")
-    private Long publishStatus;
+    /** 发布状态 */
+    @Excel(name = "发布状态")
+    private String publishStatus;
 
-    /** 是否推荐：1.推荐；2.不推荐 */
-    @Excel(name = "是否推荐：1.推荐；2.不推荐")
-    private Long recommend;
+    /** 是否推荐 */
+    @Excel(name = "是否推荐")
+    private String recommend;
 
     /** 浏览数量 */
     @Excel(name = "浏览数量")
     private Long browseNum;
 
     /** 创建时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "创建时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date createdTime;
 
     /** 更新时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "更新时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date updatedTime;
 
     public void setId(Long id) 
@@ -151,22 +148,22 @@ public class NbKnowledgeExpert extends BaseEntity
         return publishTime;
     }
 
-    public void setPublishStatus(Long publishStatus) 
+    public void setPublishStatus(String publishStatus) 
     {
         this.publishStatus = publishStatus;
     }
 
-    public Long getPublishStatus() 
+    public String getPublishStatus() 
     {
         return publishStatus;
     }
 
-    public void setRecommend(Long recommend) 
+    public void setRecommend(String recommend) 
     {
         this.recommend = recommend;
     }
 
-    public Long getRecommend() 
+    public String getRecommend() 
     {
         return recommend;
     }

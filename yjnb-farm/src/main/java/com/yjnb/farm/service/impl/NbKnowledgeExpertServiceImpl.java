@@ -1,6 +1,9 @@
 package com.yjnb.farm.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.yjnb.common.utils.UniqueIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yjnb.farm.mapper.NbKnowledgeExpertMapper;
@@ -52,6 +55,8 @@ public class NbKnowledgeExpertServiceImpl implements INbKnowledgeExpertService
     @Override
     public int insertNbKnowledgeExpert(NbKnowledgeExpert nbKnowledgeExpert)
     {
+        nbKnowledgeExpert.setId(UniqueIdGenerator.generateUniqueId());
+        nbKnowledgeExpert.setCreatedTime(new Date());
         return nbKnowledgeExpertMapper.insertNbKnowledgeExpert(nbKnowledgeExpert);
     }
 
@@ -64,6 +69,7 @@ public class NbKnowledgeExpertServiceImpl implements INbKnowledgeExpertService
     @Override
     public int updateNbKnowledgeExpert(NbKnowledgeExpert nbKnowledgeExpert)
     {
+        nbKnowledgeExpert.setUpdatedTime(new Date());
         return nbKnowledgeExpertMapper.updateNbKnowledgeExpert(nbKnowledgeExpert);
     }
 
