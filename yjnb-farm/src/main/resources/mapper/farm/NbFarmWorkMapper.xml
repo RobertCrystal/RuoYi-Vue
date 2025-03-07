@@ -31,22 +31,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectNbFarmWorkList" parameterType="NbFarmWork" resultMap="NbFarmWorkResult">
         <include refid="selectNbFarmWorkVo"/>
         <where>  
-            <if test="title != null  and title != ''"> and title = #{title}</if>
-            <if test="image != null  and image != ''"> and image = #{image}</if>
-            <if test="price != null "> and price = #{price}</if>
-            <if test="catgory != null  and catgory != ''"> and catgory = #{catgory}</if>
-            <if test="resume != null  and resume != ''"> and resume = #{resume}</if>
-            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
-            <if test="weChat != null  and weChat != ''"> and weChat = #{weChat}</if>
-            <if test="providerName != null  and providerName != ''"> and providerName like concat('%', #{providerName}, '%')</if>
-            <if test="description != null  and description != ''"> and description = #{description}</if>
-            <if test="pubdate != null "> and pubdate = #{pubdate}</if>
-            <if test="pubAccountId != null  and pubAccountId != ''"> and pubAccountId = #{pubAccountId}</if>
-            <if test="pushStatus != null "> and pushStatus = #{pushStatus}</if>
-            <if test="recommend != null "> and recommend = #{recommend}</if>
-            <if test="browseNum != null "> and browseNum = #{browseNum}</if>
-            <if test="createdTime != null "> and createdTime = #{createdTime}</if>
-            <if test="updatedTime != null "> and updatedTime = #{updatedTime}</if>
+            <if test="title != null  and title != ''"> and title like concat('%', #{title}, '%')</if>
+            <if test="resume != null  and resume != ''"> and resume like concat('%', #{resume}, '%')</if>
+            <if test="pushStatus != null  and pushStatus != ''"> and pushStatus = #{pushStatus}</if>
+            <if test="recommend != null  and recommend != ''"> and recommend = #{recommend}</if>
         </where>
     </select>
     
@@ -59,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         insert into nb_farm_work
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
-            <if test="title != null">title,</if>
+            <if test="title != null and title != ''">title,</if>
             <if test="image != null">image,</if>
             <if test="price != null">price,</if>
             <if test="catgory != null">catgory,</if>
@@ -70,15 +58,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="description != null">description,</if>
             <if test="pubdate != null">pubdate,</if>
             <if test="pubAccountId != null">pubAccountId,</if>
-            <if test="pushStatus != null">pushStatus,</if>
-            <if test="recommend != null">recommend,</if>
+            <if test="pushStatus != null and pushStatus != ''">pushStatus,</if>
+            <if test="recommend != null and recommend != ''">recommend,</if>
             <if test="browseNum != null">browseNum,</if>
             <if test="createdTime != null">createdTime,</if>
             <if test="updatedTime != null">updatedTime,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
-            <if test="title != null">#{title},</if>
+            <if test="title != null and title != ''">#{title},</if>
             <if test="image != null">#{image},</if>
             <if test="price != null">#{price},</if>
             <if test="catgory != null">#{catgory},</if>
@@ -89,8 +77,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="description != null">#{description},</if>
             <if test="pubdate != null">#{pubdate},</if>
             <if test="pubAccountId != null">#{pubAccountId},</if>
-            <if test="pushStatus != null">#{pushStatus},</if>
-            <if test="recommend != null">#{recommend},</if>
+            <if test="pushStatus != null and pushStatus != ''">#{pushStatus},</if>
+            <if test="recommend != null and recommend != ''">#{recommend},</if>
             <if test="browseNum != null">#{browseNum},</if>
             <if test="createdTime != null">#{createdTime},</if>
             <if test="updatedTime != null">#{updatedTime},</if>
@@ -100,7 +88,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateNbFarmWork" parameterType="NbFarmWork">
         update nb_farm_work
         <trim prefix="SET" suffixOverrides=",">
-            <if test="title != null">title = #{title},</if>
+            <if test="title != null and title != ''">title = #{title},</if>
             <if test="image != null">image = #{image},</if>
             <if test="price != null">price = #{price},</if>
             <if test="catgory != null">catgory = #{catgory},</if>
@@ -111,8 +99,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="description != null">description = #{description},</if>
             <if test="pubdate != null">pubdate = #{pubdate},</if>
             <if test="pubAccountId != null">pubAccountId = #{pubAccountId},</if>
-            <if test="pushStatus != null">pushStatus = #{pushStatus},</if>
-            <if test="recommend != null">recommend = #{recommend},</if>
+            <if test="pushStatus != null and pushStatus != ''">pushStatus = #{pushStatus},</if>
+            <if test="recommend != null and recommend != ''">recommend = #{recommend},</if>
             <if test="browseNum != null">browseNum = #{browseNum},</if>
             <if test="createdTime != null">createdTime = #{createdTime},</if>
             <if test="updatedTime != null">updatedTime = #{updatedTime},</if>

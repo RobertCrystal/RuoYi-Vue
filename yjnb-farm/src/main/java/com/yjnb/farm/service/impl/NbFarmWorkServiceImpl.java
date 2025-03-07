@@ -1,6 +1,9 @@
 package com.yjnb.farm.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.yjnb.common.utils.UniqueIdGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yjnb.farm.mapper.NbFarmWorkMapper;
@@ -52,6 +55,9 @@ public class NbFarmWorkServiceImpl implements INbFarmWorkService
     @Override
     public int insertNbFarmWork(NbFarmWork nbFarmWork)
     {
+        nbFarmWork.setId(UniqueIdGenerator.generateUniqueId());
+        nbFarmWork.setCreatedTime(new Date());
+        nbFarmWork.setPubdate(new Date());
         return nbFarmWorkMapper.insertNbFarmWork(nbFarmWork);
     }
 
@@ -64,6 +70,7 @@ public class NbFarmWorkServiceImpl implements INbFarmWorkService
     @Override
     public int updateNbFarmWork(NbFarmWork nbFarmWork)
     {
+        nbFarmWork.setUpdatedTime(new Date());
         return nbFarmWorkMapper.updateNbFarmWork(nbFarmWork);
     }
 

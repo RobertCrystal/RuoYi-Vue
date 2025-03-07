@@ -19,14 +19,15 @@ public class NbFarmWork extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 主键 */
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /** 标题 */
     @Excel(name = "标题")
     private String title;
 
-    /** 图片文件id */
-    @Excel(name = "图片文件id")
+    /** 图片 */
+    @Excel(name = "图片")
     private String image;
 
     /** 服务价格 */
@@ -38,14 +39,15 @@ public class NbFarmWork extends BaseEntity
     private String catgory;
 
     /** 摘要 */
+    @Excel(name = "摘要")
     private String resume;
 
     /** 联系电话 */
     @Excel(name = "联系电话")
     private String phone;
 
-    /** 微信号码 */
-    @Excel(name = "微信号码")
+    /** 微信号 */
+    @Excel(name = "微信号")
     private String weChat;
 
     /** 服务商名称 */
@@ -61,30 +63,26 @@ public class NbFarmWork extends BaseEntity
     @Excel(name = "发布时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date pubdate;
 
-    /** 发布人id */
-    @Excel(name = "发布人id")
+    /** 发布人 */
+    @Excel(name = "发布人")
     private String pubAccountId;
 
     /** 上架状态：1.已上架；2.未上架 */
     @Excel(name = "上架状态：1.已上架；2.未上架")
-    private Long pushStatus;
+    private String pushStatus;
 
     /** 是否推荐：1.推荐；2.不推荐 */
     @Excel(name = "是否推荐：1.推荐；2.不推荐")
-    private Long recommend;
+    private String recommend;
 
     /** 浏览数量 */
     @Excel(name = "浏览数量")
     private Long browseNum;
 
     /** 创建时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "创建时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date createdTime;
 
     /** 更新时间 */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @Excel(name = "更新时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date updatedTime;
 
     public void setId(Long id) 
@@ -207,22 +205,22 @@ public class NbFarmWork extends BaseEntity
         return pubAccountId;
     }
 
-    public void setPushStatus(Long pushStatus) 
+    public void setPushStatus(String pushStatus) 
     {
         this.pushStatus = pushStatus;
     }
 
-    public Long getPushStatus() 
+    public String getPushStatus() 
     {
         return pushStatus;
     }
 
-    public void setRecommend(Long recommend) 
+    public void setRecommend(String recommend) 
     {
         this.recommend = recommend;
     }
 
-    public Long getRecommend() 
+    public String getRecommend() 
     {
         return recommend;
     }
