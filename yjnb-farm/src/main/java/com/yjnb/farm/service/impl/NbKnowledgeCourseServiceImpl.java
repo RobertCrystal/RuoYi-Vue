@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import com.yjnb.common.utils.DateUtils;
 import com.yjnb.common.utils.UniqueIdGenerator;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yjnb.farm.mapper.NbKnowledgeCourseMapper;

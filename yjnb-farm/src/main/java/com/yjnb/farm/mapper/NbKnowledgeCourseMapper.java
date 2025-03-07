@@ -2,6 +2,7 @@ package com.yjnb.farm.mapper;
 
 import java.util.List;
 import com.yjnb.farm.domain.NbKnowledgeCourse;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 知识课程Mapper接口
@@ -9,6 +10,7 @@ import com.yjnb.farm.domain.NbKnowledgeCourse;
  * @author rob
  * @date 2025-03-06
  */
+@Mapper
 public interface NbKnowledgeCourseMapper 
 {
     /**
