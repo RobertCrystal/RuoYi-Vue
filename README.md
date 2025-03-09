@@ -1,3 +1,11 @@
+# 项目使用
+
+在yjnb-admin/src/main/resources/目录下新建application-druid.yml文件，
+
+复制yjnb-admin/src/main/resources/application-druid-example.yml文件中的所有代码到application-druid.yml中，并将第9行“your_database_name”和第11行“your_password”更改为你自己的数据库名和数据库密码
+
+
+
 # 后续优化
 
 注：说是后续指定要操作的表，现阶段只是随便挑了几个，可能要重写更改
