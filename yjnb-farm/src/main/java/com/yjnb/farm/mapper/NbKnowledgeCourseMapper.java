@@ -2,6 +2,7 @@ package com.yjnb.farm.mapper;
 
 import java.util.List;
 import com.yjnb.farm.domain.NbKnowledgeCourse;
+import com.yjnb.farm.domain.vo.NbKnowledgeCourseVo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -28,6 +29,8 @@ public interface NbKnowledgeCourseMapper
      * @return 知识课程集合
      */
     public List<NbKnowledgeCourse> selectNbKnowledgeCourseList(NbKnowledgeCourse nbKnowledgeCourse);
+
+    public List<NbKnowledgeCourseVo> selectNbKnowledgeCourseVoList(NbKnowledgeCourse nbKnowledgeCourse);
 
     /**
      * 新增知识课程

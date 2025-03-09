@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import com.yjnb.common.utils.DateUtils;
 import com.yjnb.common.utils.UniqueIdGenerator;
+import com.yjnb.farm.domain.vo.NbKnowledgeCourseVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,11 @@ public class NbKnowledgeCourseServiceImpl implements INbKnowledgeCourseService
     public List<NbKnowledgeCourse> selectNbKnowledgeCourseList(NbKnowledgeCourse nbKnowledgeCourse)
     {
         return nbKnowledgeCourseMapper.selectNbKnowledgeCourseList(nbKnowledgeCourse);
+    }
+
+    public List<NbKnowledgeCourseVo> selectNbKnowledgeCourseVoList(NbKnowledgeCourse nbKnowledgeCourse)
+    {
+        return nbKnowledgeCourseMapper.selectNbKnowledgeCourseVoList(nbKnowledgeCourse);
     }
 
     /**

@@ -2,6 +2,7 @@ package com.yjnb.farm.service;
 
 import java.util.List;
 import com.yjnb.farm.domain.NbKnowledgeCourse;
+import com.yjnb.farm.domain.vo.NbKnowledgeCourseVo;
 
 /**
  * 知识课程Service接口
@@ -26,6 +27,8 @@ public interface INbKnowledgeCourseService
      * @return 知识课程集合
      */
     public List<NbKnowledgeCourse> selectNbKnowledgeCourseList(NbKnowledgeCourse nbKnowledgeCourse);
+
+    public List<NbKnowledgeCourseVo> selectNbKnowledgeCourseVoList(NbKnowledgeCourse nbKnowledgeCourse);
 
     /**
      * 新增知识课程

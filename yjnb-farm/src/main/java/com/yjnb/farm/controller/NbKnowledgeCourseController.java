@@ -2,6 +2,8 @@ package com.yjnb.farm.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yjnb.farm.domain.vo.NbKnowledgeCourseVo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +44,8 @@ public class NbKnowledgeCourseController extends BaseController
     public TableDataInfo list(NbKnowledgeCourse nbKnowledgeCourse)
     {
         startPage();
-        List<NbKnowledgeCourse> list = nbKnowledgeCourseService.selectNbKnowledgeCourseList(nbKnowledgeCourse);
+//        List<NbKnowledgeCourse> list = nbKnowledgeCourseService.selectNbKnowledgeCourseList(nbKnowledgeCourse);
+        List<NbKnowledgeCourseVo> list = nbKnowledgeCourseService.selectNbKnowledgeCourseVoList(nbKnowledgeCourse);
         return getDataTable(list);
     }
 
