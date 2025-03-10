@@ -58,4 +58,18 @@ public interface INbFarmProduceService
      * @return 结果
      */
     public int deleteNbFarmProduceById(Long id);
+
+    /**
+     * 批量推荐
+     * @param ids 农产品
+     * @return
+     */
+    public int recommendProduceByIds(Long[] ids);
+
+    /**
+     * 推荐
+     * @param id
+     * @return
+     */
+    public int recommendProduceById(Long id);
 }
