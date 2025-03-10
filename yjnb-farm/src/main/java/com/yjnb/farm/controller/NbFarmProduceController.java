@@ -110,4 +110,13 @@ public class NbFarmProduceController extends BaseController
     {
         return toAjax(nbFarmProduceService.recommendProduceByIds(ids));
     }
+
+    /**
+     * 取消推荐农产品
+     */
+    @PutMapping("/not-recommend/{ids}")
+    public AjaxResult notRecommendProduce(@PathVariable Long[] ids)
+    {
+        return toAjax(nbFarmProduceService.notRecommendProduceByIds(ids));
+    }
 }

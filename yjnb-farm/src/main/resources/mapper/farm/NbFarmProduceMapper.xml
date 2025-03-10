@@ -129,4 +129,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </update>
+
+    <update id="notRecommendProduceById" parameterType="Long">
+        update nb_farm_produce
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="recommend != null">recommend = 2,</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="notRecommendProduceByIds" parameterType="String">
+        update nb_farm_produce set recommend = 2 where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
 </mapper>

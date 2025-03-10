@@ -74,4 +74,20 @@ public interface NbFarmProduceMapper
      * @return 结果
      */
     public int recommendProduceByIds(Long[] ids);
+
+    /**
+     * 取消推荐农产品
+     *
+     * @param id 农产品主键
+     * @return 结果
+     */
+    public int notRecommendProduceById(Long id);
+
+    /**
+     * 批量取消推荐农产品
+     *
+     * @param ids
+     * @return 结果
+     */
+    public int notRecommendProduceByIds(Long[] ids);
 }

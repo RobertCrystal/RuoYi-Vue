@@ -121,4 +121,28 @@ public class NbFarmProduceServiceImpl implements INbFarmProduceService
     {
         return nbFarmProduceMapper.recommendProduceById(id);
     }
+
+    /**
+     * 批量取消推荐农产品
+     *
+     * @param ids
+     * @return 结果
+     */
+    @Override
+    public int notRecommendProduceByIds(Long[] ids)
+    {
+        return nbFarmProduceMapper.notRecommendProduceByIds(ids);
+    }
+
+    /**
+     * 取消推荐农产品
+     *
+     * @param id 农产品主键
+     * @return 结果
+     */
+    @Override
+    public int notRecommendProduceById(Long id)
+    {
+        return nbFarmProduceMapper.notRecommendProduceById(id);
+    }
 }
