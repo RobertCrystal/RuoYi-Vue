@@ -86,7 +86,6 @@ public class NbAllowancePolicyController extends BaseController
     @Log(title = "补贴政策", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增补贴政策")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "主键ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class),
             @ApiImplicitParam(name = "title", value = "文章标题", required = true, dataType = "String", paramType = "path", dataTypeClass = String.class),
             @ApiImplicitParam(name = "author", value = "作者/来源", required = true, dataType = "String", paramType = "path", dataTypeClass = String.class),
             @ApiImplicitParam(name = "resume", value = "文章摘要", required = true, dataType = "String", paramType = "path", dataTypeClass = String.class),
