@@ -35,6 +35,7 @@
         <logback.version>1.2.13</logback.version>
         <spring-security.version>5.7.12</spring-security.version>
         <spring-framework.version>5.3.39</spring-framework.version>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -139,6 +140,29 @@
                         <artifactId>swagger-models</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+<!--            &lt;!&ndash;集成knife4j实现swagger文档增强&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.github.xiaoymin</groupId>-->
+<!--                <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--                <version>3.0.3</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>com.google.guava</groupId>-->
+<!--                        <artifactId>guava</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.yaml</groupId>-->
+<!--                        <artifactId>snakeyaml</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
+            <!-- knife4j（swagger3增强版） -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
 
             <!-- io常用工具类 -->
