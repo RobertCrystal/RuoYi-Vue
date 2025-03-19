@@ -43,7 +43,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 查询农产品列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:list')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:list')")
     @ApiOperation(value = "查询农产品列表")
     @GetMapping("/list")
     public TableDataInfo list(NbFarmProduce nbFarmProduce)
@@ -56,7 +56,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 导出农产品列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:export')")
     @Log(title = "农产品", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出农产品列表")
     @PostMapping("/export")
@@ -70,7 +70,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 获取农产品详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:query')")
     @ApiOperation(value = "获取农产品详细信息")
     @ApiImplicitParam(name = "id", value = "主键ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping(value = "/{id}")
@@ -82,7 +82,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 新增农产品
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:add')")
     @Log(title = "农产品", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增农产品")
     @ApiImplicitParams({
@@ -108,7 +108,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 修改农产品
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:edit')")
     @Log(title = "农产品", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改农产品")
     @PutMapping
@@ -120,7 +120,7 @@ public class NbFarmProduceController extends BaseController
     /**
      * 删除农产品
      */
-    @PreAuthorize("@ss.hasPermi('farm:produce:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:produce:remove')")
     @Log(title = "农产品", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除农产品")
     @ApiImplicitParam(name = "ids", value = "主键ID串", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)

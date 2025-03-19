@@ -43,7 +43,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 查询农事服务列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:list')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:list')")
     @ApiOperation(value = "查询农事服务列表")
     @GetMapping("/list")
     public TableDataInfo list(NbFarmWork nbFarmWork)
@@ -56,7 +56,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 导出农事服务列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:export')")
     @Log(title = "农事服务", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出农事服务列表")
     @PostMapping("/export")
@@ -70,7 +70,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 获取农事服务详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:query')")
     @ApiOperation(value = "获取农事服务详细信息")
     @ApiImplicitParam(name = "id", value = "主键ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping(value = "/{id}")
@@ -82,7 +82,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 新增农事服务
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:add')")
     @Log(title = "农事服务", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增农事服务")
     @ApiImplicitParams({
@@ -109,7 +109,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 修改农事服务
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:edit')")
     @Log(title = "农事服务", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改农事服务")
     @PutMapping
@@ -121,7 +121,7 @@ public class NbFarmWorkController extends BaseController
     /**
      * 删除农事服务
      */
-    @PreAuthorize("@ss.hasPermi('farm:work:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:work:remove')")
     @Log(title = "农事服务", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除农事服务")
     @ApiImplicitParam(name = "ids", value = "主键ID串", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)

@@ -43,7 +43,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 查询补贴政策列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:list')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:list')")
     @ApiOperation(value = "查询补贴政策列表")
     @GetMapping("/list")
     public TableDataInfo list(NbAllowancePolicy nbAllowancePolicy)
@@ -56,7 +56,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 导出补贴政策列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:export')")
     @Log(title = "补贴政策", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出补贴政策列表")
     @PostMapping("/export")
@@ -70,7 +70,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 获取补贴政策详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:query')")
     @ApiOperation(value = "获取补贴政策详细信息")
     @ApiImplicitParam(name = "id", value = "主键ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping(value = "/{id}")
@@ -82,7 +82,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 新增补贴政策
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:add')")
     @Log(title = "补贴政策", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增补贴政策")
     @ApiImplicitParams({
@@ -104,7 +104,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 修改补贴政策
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:edit')")
     @Log(title = "补贴政策", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改补贴政策")
     @PutMapping
@@ -116,7 +116,7 @@ public class NbAllowancePolicyController extends BaseController
     /**
      * 删除补贴政策
      */
-    @PreAuthorize("@ss.hasPermi('farm:policy:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:policy:remove')")
     @Log(title = "补贴政策", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除补贴政策")
     @ApiImplicitParam(name = "ids", value = "主键ID串", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)

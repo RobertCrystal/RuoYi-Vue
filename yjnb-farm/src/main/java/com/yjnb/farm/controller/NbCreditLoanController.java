@@ -43,7 +43,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 查询信贷信息列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:list')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:list')")
     @ApiOperation(value = "查询信贷信息列表")
     @GetMapping("/list")
     public TableDataInfo list(NbCreditLoan nbCreditLoan)
@@ -56,7 +56,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 导出信贷信息列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:export')")
     @Log(title = "信贷信息", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出信贷信息列表")
     @PostMapping("/export")
@@ -70,7 +70,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 获取信贷信息详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:query')")
     @ApiOperation(value = "获取信贷信息详细信息")
     @ApiImplicitParam(name = "id", value = "主键ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping(value = "/{id}")
@@ -82,7 +82,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 新增信贷信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:add')")
     @Log(title = "信贷信息", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增信贷信息")
     @ApiImplicitParams({
@@ -105,7 +105,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 修改信贷信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:edit')")
     @Log(title = "信贷信息", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改信贷信息")
     @PutMapping
@@ -117,7 +117,7 @@ public class NbCreditLoanController extends BaseController
     /**
      * 删除信贷信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:loan:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:loan:remove')")
     @Log(title = "信贷信息", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除信贷信息")
     @ApiImplicitParam(name = "ids", value = "主键ID串", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)

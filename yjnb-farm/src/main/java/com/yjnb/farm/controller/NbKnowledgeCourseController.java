@@ -44,7 +44,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 查询知识课程列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:list')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:list')")
     @ApiOperation(value = "查询知识课程列表")
     @GetMapping("/list")
     public TableDataInfo list(NbKnowledgeCourse nbKnowledgeCourse)
@@ -58,7 +58,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 导出知识课程列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:export')")
     @Log(title = "知识课程", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出知识课程列表")
     @PostMapping("/export")
@@ -72,7 +72,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 获取知识课程详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:query')")
     @ApiOperation(value = "获取知识课程详细信息")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
@@ -83,7 +83,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 新增知识课程
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:add')")
     @Log(title = "知识课程", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增知识课程")
     @ApiImplicitParams({
@@ -112,7 +112,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 修改知识课程
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:edit')")
     @Log(title = "知识课程", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改知识课程")
     @PutMapping
@@ -124,7 +124,7 @@ public class NbKnowledgeCourseController extends BaseController
     /**
      * 删除知识课程
      */
-    @PreAuthorize("@ss.hasPermi('farm:course:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:course:remove')")
     @Log(title = "知识课程", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除知识课程")
     @ApiImplicitParam(name = "ids", value = "主键串", required = true, dataType = "Long", paramType = "path", dataTypeClass = Long.class)

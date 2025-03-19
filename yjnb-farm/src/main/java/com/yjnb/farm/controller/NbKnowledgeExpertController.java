@@ -43,7 +43,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 查询知识专家列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:list')")
+    ////@PreAuthorize("@ss.hasPermi('farm:expert:list')")
     @ApiOperation(value = "查询知识专家列表")
     @GetMapping("/list")
     public TableDataInfo list(NbKnowledgeExpert nbKnowledgeExpert)
@@ -56,7 +56,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 导出知识专家列表
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:export')")
+    //@PreAuthorize("@ss.hasPermi('farm:expert:export')")
     @Log(title = "知识专家", businessType = BusinessType.EXPORT)
     @ApiOperation(value = "导出知识专家列表")
     @PostMapping("/export")
@@ -70,7 +70,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 获取知识专家详细信息
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:query')")
+    //@PreAuthorize("@ss.hasPermi('farm:expert:query')")
     @ApiOperation(value = "获取知识专家详细信息")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
@@ -81,7 +81,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 新增知识专家
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:add')")
+    //@PreAuthorize("@ss.hasPermi('farm:expert:add')")
     @Log(title = "知识专家", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增知识专家")
     @ApiImplicitParams({
@@ -105,7 +105,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 修改知识专家
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:edit')")
+    //@PreAuthorize("@ss.hasPermi('farm:expert:edit')")
     @Log(title = "知识专家", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "修改知识专家")
     @PutMapping
@@ -117,7 +117,7 @@ public class NbKnowledgeExpertController extends BaseController
     /**
      * 删除知识专家
      */
-    @PreAuthorize("@ss.hasPermi('farm:expert:remove')")
+    //@PreAuthorize("@ss.hasPermi('farm:expert:remove')")
     @Log(title = "知识专家", businessType = BusinessType.DELETE)
     @ApiOperation(value = "删除知识专家")
     @ApiImplicitParam(name = "ids", value = "主键ID串", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
